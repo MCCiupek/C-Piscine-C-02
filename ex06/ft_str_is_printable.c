@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 00:17:31 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/09 20:03:23 by mciupek          ###   ########.fr       */
+/*   Created: 2019/06/09 23:51:56 by mciupek           #+#    #+#             */
+/*   Updated: 2019/06/09 23:52:03 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		ft_str_is_printable(char *str)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
-
-	while (i <= n)
+	while (str[i] != '\0') 
 	{
-		if (src[i] == '\0')
-			dest[i] = '\0';	
-		else
-			dest[i] = src[i];
+		if (str[i] < 33)
+			return (0);
 		i++;
 	}
-	dest[i] = '\0';
-	return dest;
+	return (1);
 }
 
-int		main(void)
+int 	main(void)
 {
-	char dest[10];
-	char *src;
-				
-	src = "Hello";
-	ft_strncpy(dest, src, 5);
-	printf("%s", dest);
+	printf("%d", ft_str_is_printable("aaa\n"));
 }

@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 00:17:31 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/09 20:03:23 by mciupek          ###   ########.fr       */
+/*   Created: 2019/06/09 23:34:18 by mciupek           #+#    #+#             */
+/*   Updated: 2019/06/09 23:39:09 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		ft_str_is_uppercase(char *str)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
-
-	while (i <= n)
+	while (str[i] != '\0') 
 	{
-		if (src[i] == '\0')
-			dest[i] = '\0';	
-		else
-			dest[i] = src[i];
+		if (str[i] < 'A' || str[i] > 'Z')
+			return (0);
 		i++;
 	}
-	dest[i] = '\0';
-	return dest;
+	return (1);
 }
 
-int		main(void)
+int 	main(int argc, char **argv)
 {
-	char dest[10];
-	char *src;
-				
-	src = "Hello";
-	ft_strncpy(dest, src, 5);
-	printf("%s", dest);
+	if (argc != 2)
+		return (0);
+
+	printf("%d", ft_str_is_uppercase(argv[1]));
 }
