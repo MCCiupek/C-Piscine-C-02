@@ -1,36 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/09 20:05:20 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/10 12:16:08 by mciupek          ###   ########.fr       */
+/*   Created: 2019/06/10 12:17:28 by mciupek           #+#    #+#             */
+/*   Updated: 2019/06/10 15:13:33 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 
-int		ft_str_is_alpha(char *str)
+unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int i;
-	
+	unsigned int i;
+
 	i = 0;
-	while (str[i] != '\0') 
+
+	while (i < size)
 	{
-		if (str[i] < 'A' || (str[i] > 'Z' && str[i] < 'a') || str[i] > 'z')
-			return (0);
+		if (src[i] == '\0')
+		{
+			dest[i] = '\0';
+			break;
+		}
+		else
+			dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	while (src[i] != '\0')
+		i++;
+	return i;
 }
 
-int 	main(int argc, char **argv)
+int 	main(void)
 {
-	if (argc != 2)
-		return (0);
+	unsigned int size = 3; 
+	char dest[size];
+	char *src;
 	
-	printf("%d", ft_str_is_alpha(argv[1]));
+	src = "Hello";
+	printf("ft_strlcpy = %d\n", ft_strlcpy(dest, src, size));
+	printf("strlcpy = %lu", strlcpy(dest, src, size));
 }
-
