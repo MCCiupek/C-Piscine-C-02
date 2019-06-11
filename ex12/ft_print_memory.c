@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:39 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/11 18:38:29 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 21:41:45 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,22 @@ void	ft_dec2hex(char *str)
 	write(1, &tab_hex[str[0] % 16], 1);
 }
 
-void	ft_dec2hex_long(unsigned long nb, int c)
+void	ft_dec2hex_long(void *addr, char *base)
 {
-	char			*tab_hex;
-	int				p;
-	long			pow;
-	unsigned long	n;
-	int				i;
+	unsigned long long	value;
+	char				c[15];
+	int					i;
 
-	tab_hex = "0123456789abcdef";
-	while (nb >= 16)
+	i = 0;
+	value = (unsigned long long)addr;
+	while (i < 15)
 	{
-		p = 0;
-		pow = 1;
-		n = nb;
-		while (n / 16 != 0)
-		{
-			n = n / 16;
-			p++;
-		}
-		while ((--p + 1) > 0)
-			pow = pow * 16;
-		write(1, &tab_hex[nb / pow], 1);
-		nb = nb % pow;
+		c[14 - i] = base[value % 16];
+		value /= 16;
 		i++;
 	}
-	write(1, &tab_hex[nb + c], 1);
+	write(1, c, 15);
+	write(1, ": ", 2);
 }
 
 void	ft_print_memory_line(char *ptr, unsigned int size, unsigned int i)
@@ -84,29 +74,15 @@ void	ft_print_memory_line(char *ptr, unsigned int size, unsigned int i)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned int	i;
-	unsigned int	j;
 	char			*ptr;
-	unsigned long	add;
 
 	ptr = (char *)addr;
 	i = 0;
 	while (i < size)
 	{
-		add = (unsigned long)&addr;
-		write(1, "00", 2);
-		ft_dec2hex_long(add, i / 16);
-		write(1, "0 : ", 4);
+		ft_dec2hex_long(&addr[i], "0123456789abcde");
 		ft_print_memory_line(ptr, size, i);
 		i += 16;
 	}
 	return (addr);
-}
-
-int		main(void)
-{
-	char	*tab;
-
-	tab = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire "
-		"avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
-	ft_print_memory(tab, 92);
 }

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 char	*ft_strupcase(char *str)
 {
 	int i;
@@ -25,12 +23,3 @@ char	*ft_strupcase(char *str)
 	}
 	return (str);
 }
-
-int 	main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (0);
-			
-	printf("%s", ft_strupcase(argv[1]));
-}
-

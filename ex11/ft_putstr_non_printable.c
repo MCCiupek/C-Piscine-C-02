@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -20,41 +17,10 @@ void	ft_putchar(char c)
 
 int		ft_str_is_printable(char *str)
 {
-	if (str[0] < 33 && str[0] != ' ')
+	if (str[0] < 32 || str[0] == 127)
 		return (0);
 	return (1);
 }
-
-/*char ft_dec2hex(int nb)
-{
-	char	tab_hex[16] ;
-	int		p;
-	int		pow;
-	int 	n;
-	char 	str[2];
-	int		i;
-
-	tab_hex = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a',
-		'b', 'c', 'd', 'e', 'f'};
-	
-	while (nb < 16)
-	{
-		p = 0;
-		pow = 1;
-		n = nb;
-		while (n / 16 != 0)
-		{
-			n = n / 16;
-			p++;
-		}
-		while ((--p + 1) > 0)
-			pow = pow * 16;
-		str[i] = tab_hex[nb / pow];
-		nb = nb % pow;
-		i++;
-	}
-	return (str);
-}*/
 
 void	ft_putstr_non_printable(char *str)
 {
@@ -76,9 +42,4 @@ void	ft_putstr_non_printable(char *str)
 			ft_putchar(str[i]);
 		i++;
 	}
-}
-
-int  main()
-{
-	ft_putstr_non_printable("Coucou\ntu vas bien ?");
 }

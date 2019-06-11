@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int		ft_str_is_uppercase(char *str)
 {
 	int i;
@@ -24,12 +22,4 @@ int		ft_str_is_uppercase(char *str)
 		i++;
 	}
 	return (1);
-}
-
-int 	main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (0);
-
-	printf("%d", ft_str_is_uppercase(argv[1]));
 }
