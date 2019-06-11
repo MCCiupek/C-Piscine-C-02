@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 23:51:56 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/09 23:52:03 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 23:19:39 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@ int		ft_str_is_printable(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
-        if (str[i] < 32 || str[i] == 127)
+		if (str[i] < 32 || str[i] == 127)
 			return (0);
 		i++;
 	}

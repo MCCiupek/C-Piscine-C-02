@@ -6,16 +6,16 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 00:17:01 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/10 00:17:11 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 23:21:01 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
 	int i;
-	
+
 	i = 0;
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] = str[i] + 32;

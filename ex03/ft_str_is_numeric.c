@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 23:18:50 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/11 19:46:25 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 23:15:43 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int		ft_str_is_numeric(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (0);

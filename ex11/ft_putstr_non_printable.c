@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 15:13:59 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/10 19:31:26 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 23:24:16 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ int		ft_str_is_printable(char *str)
 
 void	ft_putstr_non_printable(char *str)
 {
-	int i;
-	char *tab_hex;
+	int		i;
+	char	*tab_hex;
 
 	tab_hex = "0123456789abcdef";
-
 	i = 0;
 	while (str[i] != '\0')
 	{

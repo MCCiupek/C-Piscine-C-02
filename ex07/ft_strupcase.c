@@ -6,16 +6,16 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 00:00:57 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/10 00:17:25 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/11 23:20:28 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strupcase(char *str)
 {
 	int i;
-	
+
 	i = 0;
-	while (str[i] != '\0') 
+	while (str[i] != '\0')
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
 			str[i] = str[i] - 32;
