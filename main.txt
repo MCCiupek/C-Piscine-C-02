@@ -1,0 +1,188 @@
+EX00
+
+#include <stdio.h>
+#include <string.h>
+
+
+int		main(void)
+{
+	int n = 2;
+	char dest[n];
+	char *src;
+	
+	src = "Hello";
+	printf("ft_strcpy = %s\n", ft_strcpy(dest, src));
+	printf("strcpy = %s", strcpy(dest, src));
+}
+
+
+EX01
+
+#include <stdio.h>
+#include <string.h>
+
+int		main(void)
+{
+	unsigned int n = 3;	
+	char dest[n];
+	char *src;
+	src = "Hello";
+
+	printf("ft_strncpy = %s\n", ft_strncpy(dest, src, n));
+	printf("strncpy = %s", strncpy(dest, src, n));
+}
+
+
+EX02
+
+#include <stdio.h>
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	
+	printf("%d", ft_str_is_alpha(argv[1]));
+}
+
+
+EX03
+
+#include <stdio.h>
+
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+	
+	printf("%d", ft_str_is_numeric(argv[1]));
+}
+
+
+EX04
+
+#include <stdio.h>
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+			
+	printf("%d", ft_str_is_lowercase(argv[1]));
+}
+
+
+EX05
+
+#include <stdio.h>
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+
+	printf("%d", ft_str_is_uppercase(argv[1]));
+}
+
+
+EX06
+
+#include <stdio.h>
+
+
+int 	main(void)
+{
+	printf("%d", ft_str_is_printable("aaa\n"));
+}
+
+
+EX07
+
+#include <stdio.h>
+
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+			
+	printf("%s", ft_strupcase(argv[1]));
+}
+
+
+
+EX08
+
+#include <stdio.h>
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+			
+	printf("%s", ft_strlowcase(argv[1]));
+}
+
+
+EX09
+
+#include <stdio.h>
+
+int 	main(int argc, char **argv)
+{
+	if (argc != 2)
+		return (0);
+			
+	printf("%s", ft_strcapitalize(argv[1]));
+}
+
+
+EX10
+
+
+#include <stdio.h>
+#include <string.h>
+
+
+int 	main(void)
+{
+	unsigned int size = 3; 
+	char dest[size];
+	char *src;
+	
+	src = "Hello";
+	printf("ft_strlcpy = %d\n", ft_strlcpy(dest, src, size));
+	printf("strlcpy = %lu", strlcpy(dest, src, size));
+}
+
+
+EX11
+
+
+#include <unistd.h>
+
+
+
+int     main(int argc, char **argv)
+{
+    if (argc != 2)
+        return (0);
+    
+    ft_putstr_non_printable("Coucou\ntu vas bien ?");
+}
+
+
+EX12
+
+#include <unistd.h>
+
+
+int		main(void)
+{
+	char	*tab;
+
+	tab = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire "
+		"avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
+	ft_print_memory(tab, 92);
+}
