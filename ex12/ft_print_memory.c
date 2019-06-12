@@ -6,20 +6,20 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:39 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/11 23:24:32 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/12 14:13:00 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_str_is_printable(char *str)
+int		ft_str_is_printable(unsigned char *str)
 {
-	if (str[0] < 32 || str[0] > 127)
+	if (str[0] < 32 || str[0] == 127)
 		return (0);
 	return (1);
 }
 
-void	ft_dec2hex(char *str)
+void	ft_dec2hex(unsigned char *str)
 {
 	char *tab_hex;
 
@@ -48,13 +48,15 @@ void	ft_dec2hex_long(void *addr, char *base)
 
 void	ft_print_memory_line(char *ptr, unsigned int size, unsigned int i)
 {
-	unsigned int j;
+	unsigned int	j;
+	unsigned char	p;
 
 	j = 0;
 	while (++j <= 16)
 	{
+		p = (unsigned char)ptr[j + i - 1];
 		if (j + i - 1 < size)
-			ft_dec2hex(&ptr[j + i - 1]);
+			ft_dec2hex(&p);
 		else
 			write(1, "  ", 2);
 		if (j % 2 == 0)
@@ -63,10 +65,11 @@ void	ft_print_memory_line(char *ptr, unsigned int size, unsigned int i)
 	j = 0;
 	while (++j <= 16 && j + i <= size)
 	{
-		if (ft_str_is_printable(&ptr[j + i - 1]) == 0)
+		p = (unsigned char)ptr[j + i - 1];
+		if (ft_str_is_printable(&p) == 0)
 			write(1, ".", 1);
 		else
-			write(1, &ptr[j + i - 1], 1);
+			write(1, &p, 1);
 	}
 	write(1, "\n", 1);
 }
