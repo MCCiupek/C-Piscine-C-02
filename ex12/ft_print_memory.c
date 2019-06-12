@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:39 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/12 14:13:00 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/12 16:11:19 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,19 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	i = 0;
 	while (i < size)
 	{
-		ft_dec2hex_long(&addr[i], "0123456789abcde");
+		ft_dec2hex_long(&addr[i], "0123456789abcdef");
 		ft_print_memory_line(ptr, size, i);
 		i += 16;
 	}
 	return (addr);
 }
+
+int		main(void)
+{
+	char	*tab;
+
+	tab = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire "
+		"avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
+	ft_print_memory(tab, 92);
+}
+
