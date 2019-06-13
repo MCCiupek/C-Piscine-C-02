@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:39 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/12 16:11:19 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/12 23:52:31 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_str_is_printable(unsigned char *str)
 {
-	if (str[0] < 32 || str[0] == 127)
+	if (str[0] < 32 || str[0] > 126)
 		return (0);
 	return (1);
 }
@@ -89,13 +89,3 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-
-int		main(void)
-{
-	char	*tab;
-
-	tab = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire "
-		"avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
-	ft_print_memory(tab, 92);
-}
-

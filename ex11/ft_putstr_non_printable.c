@@ -6,7 +6,7 @@
 /*   By: mciupek <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 15:13:59 by mciupek           #+#    #+#             */
-/*   Updated: 2019/06/12 14:17:11 by mciupek          ###   ########.fr       */
+/*   Updated: 2019/06/12 23:52:48 by mciupek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putchar(char c)
 
 int		ft_str_is_printable(unsigned char *str)
 {
-	if (str[0] < 32 || str[0] == 127)
+	if (str[0] < 32 || str[0] > 126)
 		return (0);
 	return (1);
 }
